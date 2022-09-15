@@ -1,0 +1,27 @@
+﻿<Window x:Class="PoiskovikGoogle.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PoiskovikGoogle"
+        mc:Ignorable="d"
+        Title="MainWindow"  WindowStartupLocation="CenterScreen" Height="800" Width="1100">
+    <StackPanel>
+        <Menu Height="20" VerticalAlignment="Top" Cursor="Help" >
+            <MenuItem x:Name="Menu" Header="Настройки" >
+                <CheckBox x:Name="GoogleWeb" Content="Gooole" IsChecked="True" Click="GoogleWeb_Click" />
+                <CheckBox x:Name="YandexWeb" Content="Яндекс" IsChecked="False" Click="YandexWeb_Click"/>
+            </MenuItem>
+        </Menu>
+        <TextBox x:Name="Seach" Height="20" SpellCheck.IsEnabled="True" Language="ru-ru"/>
+        <Button x:Name="ButtonSeach" Content="Поиск" Click="ButtonSeach_Click"/>
+        <ListBox x:Name="Vizor1" SelectionChanged="Vizor1_SelectionChanged" Width="1000" Height="180">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Web}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <WebBrowser x:Name="BrowserG" Height="600" Source="https://www.google.com"/>
+    </StackPanel>
+</Window>
